@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+	    <script>
+			var ctx, canvas, centerX, centerY, radius;
+			var borderColor = '#c8c8c8';
+			var innerBorderColor = '#c8c8c8';
+			var handColor = '#666666';
+			window.onload = function() {
+				canvas = document.getElementById('myCanvas');
+				ctx = canvas.getContext('2d');
+
+				centerX = canvas.width/2;
+				centerY = canvas.height/2;
+				radius = canvas.width/3;
+				
+				drawOuterGradient();   
+				drawInnerGradient();
+			};
+			
+			function drawOuterGradient() {
+				ctx.beginPath();
+				ctx.strokeStyle = borderColor;
+				ctx.fillStyle = '#efefef';
+				ctx.arc(centerX, centerY/1.2, radius, 0, 2 * Math.PI, false);
+				ctx.fill();
+				ctx.stroke();
+				ctx.closePath();  
+			}
+			
+			function drawInnerGradient() {
+				ctx.beginPath();
+				ctx.fillStyle = '#88bfe8';
+				ctx.arc(centerX, centerY/1.2, radius - 10, 0, 2 * Math.PI, false);
+				ctx.fill();
+				ctx.strokeStyle = innerBorderColor;
+				ctx.stroke();		
+				ctx.closePath();
+			}
+		</script>
+	</head>
+	<body>
+	    <canvas id="myCanvas" width="300" height="300" />
+	</body>
+</html>
