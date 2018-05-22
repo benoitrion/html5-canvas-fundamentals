@@ -21,7 +21,11 @@
 			function drawOuterGradient() {
 				ctx.beginPath();
 				ctx.strokeStyle = borderColor;
-				ctx.fillStyle = '#efefef';
+                var gradient = ctx.createRadialGradient(centerX, centerY / 1.2, radius,
+                                                       100, 50, radius/2);
+                gradient.addColorStop(0, '#ccc');                
+                gradient.addColorStop(1, '#fff');
+				ctx.fillStyle = gradient;
 				ctx.arc(centerX, centerY/1.2, radius, 0, 2 * Math.PI, false);
 				ctx.fill();
 				ctx.stroke();
@@ -30,7 +34,11 @@
 			
 			function drawInnerGradient() {
 				ctx.beginPath();
-				ctx.fillStyle = '#88bfe8';
+                var gradient = ctx.createRadialGradient(centerX, centerY / 1.2, radius,
+                                                       70, 50, radius/4);
+                gradient.addColorStop(0, '#88bfe8');                
+                gradient.addColorStop(1, '#fff');
+				ctx.fillStyle = gradient;
 				ctx.arc(centerX, centerY/1.2, radius - 10, 0, 2 * Math.PI, false);
 				ctx.fill();
 				ctx.strokeStyle = innerBorderColor;
@@ -40,6 +48,6 @@
 		</script>
 	</head>
 	<body>
-	    <canvas id="myCanvas" width="300" height="300" />
+	    <canvas id="myCanvas" width="300" height="300" style="background-color: grey"/>
 	</body>
 </html>

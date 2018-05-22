@@ -17,7 +17,7 @@
 					var b = Math.floor(255 * Math.random());
 					ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";   
 					ctx.fillRect(0, 0, 50, 50);   
-					ctx.setTransform(cos, sin, -sin, cos, 20, 10);   
+					ctx.transform(cos, sin, -sin, cos, 20, 10);   
 				} 
 			};
 		</script>
